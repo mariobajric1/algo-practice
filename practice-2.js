@@ -42,9 +42,11 @@ maxProfitWithKTransactionsOptimized = (prices, k) => {
 	//create two consecutive arrays from profits instead of entire matrix
 	const evenProfits = new Array(prices.length).fill(0);
 	const oddProfits = new Array(prices.length).fill(0);
-	//
+	//for every transaction starting at the first,
 	for (let t = 1; t < k + 1; t++) {
+		// sets initial profits low
 		let maxPot = -Infinity;
+		//variables made to easily iterate later on
 		let currentProfits, previousProfits;
 		if (t % 2 === 1) {
 			currentProfits = oddProfits;
@@ -53,11 +55,14 @@ maxProfitWithKTransactionsOptimized = (prices, k) => {
 			currentProfits = evenProfits;
 			previousProfits = oddProfits;
 		}
+		// for every day, the profit is equal to yesterdays profit or the max potential proiit plus todays price.
 		for (let d = 1; d < prices.length; d++) {
 			maxPot = Math.max(maxPot, previousProfits[d - 1] - prices[d - 1]);
 			currentProfits[d] = Math.max(currentProfits[d - 1], maxPot + prices[d]);
 		}
 	}
+
+	// return max profit
 	console.log(
 		k % 2 === 0 ? evenProfits[prices.length - 1] : oddProfits[prices.length - 1]
 	);
