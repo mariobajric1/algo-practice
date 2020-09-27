@@ -39,8 +39,10 @@ maxProfitWithKTransactionsOptimized = (prices, k) => {
 	if (!prices.length) {
 		console.log("0");
 	}
+	//create two consecutive arrays from profits instead of entire matrix
 	const evenProfits = new Array(prices.length).fill(0);
 	const oddProfits = new Array(prices.length).fill(0);
+	//
 	for (let t = 1; t < k + 1; t++) {
 		let maxPot = -Infinity;
 		let currentProfits, previousProfits;
