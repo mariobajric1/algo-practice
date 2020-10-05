@@ -48,6 +48,7 @@ maxProfitWithKTransactionsOptimized = (prices, k) => {
 		let maxPot = -Infinity;
 		//variables made to easily iterate later on
 		let currentProfits, previousProfits;
+		// if the transaction num is odd, sets current profits to odd, and vice versa
 		if (t % 2 === 1) {
 			currentProfits = oddProfits;
 			previousProfits = evenProfits;
