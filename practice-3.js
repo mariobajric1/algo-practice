@@ -9,6 +9,7 @@ twoSum = (nums, target) => {
 
 	//loop through array
 	for (let i = 0; i < nums.length; i++) {
+		//if the value we need it in the map
 		if (comp[nums[i]] >= 0) {
 			//returns answer
 			console.log([comp[nums[i]], i]);
