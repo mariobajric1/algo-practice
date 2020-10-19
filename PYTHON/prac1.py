@@ -30,4 +30,45 @@ def twoNumberSum(array, targetSum):
     return []
 
 
-twoNumberSum([1, 2, 3], 5)
+def twoNumberSum2(array, targetSum):
+    # Write your code here.
+	# hash table method
+	# o(n) time | o(n) space
+
+# 	create hash table
+	nums = {}
+# 	for currentnum in array
+	for currentNum in array:
+# 		set potential match to: target - currentNum
+		potentialMatch = targetSum - currentNum
+# 		if that potential number is in our hash
+		if potentialMatch in nums:
+# 			return ans, aka potmatch & currentnum
+			return [potentialMatch, currentNum]
+# 		otherwse push the current num to the hash table incase it is a match for a later number in array
+		else:
+			nums[currentNum] = True
+# 	no solution
+	return []
+
+    pass
+
+
+
+
+
+
+def twoNumberSum3(array, targetSum):
+    # Write your code here.
+	# double for-loop solution
+# 	too long and too much space
+	
+	for i in range(len(array) - 1):
+		firstNum = array[i]
+		for j in range(i + 1, len(array)):
+			secondNum = array[j]
+			if firstNum + secondNum == targetSum:
+				return [firstNum, secondNum]
+	return []
+
+    pass
