@@ -1,6 +1,8 @@
 def isValidSubsequence(array, sequence):
     # Write your code here.
 # 	o(n) time | o(1) space
+#   While-loop solution
+
 # 	set arr pointer
 	arrI = 0
 # 	set seq pointer
@@ -16,4 +18,27 @@ def isValidSubsequence(array, sequence):
 # 	return t/f if seq pointer made it to the end of the sequence
 	return seqI == len(sequence)
 
+
+def isValidSubsequence2(array, sequence):
+        # Write your code here.
+# 	for-loop solution
+# 	set sequence pointer
+	pointer = 0
+
+# 	for num in array
+	for value in array:
+# 		if the pointer = len of the sequence,
+		if pointer == len(sequence):
+# 			 we're done so it breaks
+			break
+# 		if sequence value = array value
+		if sequence[pointer] == value:
+# 			increase pointer position 1
+			pointer += 1
+# 	returns if pointer makes it to the end of the sequence
+	return pointer == len(sequence)
+
     pass
+
+
+
