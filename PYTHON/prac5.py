@@ -36,7 +36,7 @@ def nodeDepths2(root):
 	sumOfDepths = 0
 	
 # 	initialize stack at root node
-	stack = [{'node': root, 'depth', 0}]
+	stack = [{'node': root, 'depth': 0}]
 	
 # 	loop over stack while there are things to do
 	while len(stack) > 0:
