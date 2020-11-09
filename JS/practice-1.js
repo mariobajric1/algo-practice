@@ -15,3 +15,23 @@ let pairs = (ar) => {
 };
 
 pairs(arr);
+
+
+
+
+let pairs = (ar) => {
+	let shoes = {}
+	let pairs = 0;
+	for(let i of ar) {
+		shoes[i] = shoes[i] + 1 || 1;
+		if (socks[i] % 2 === 0) {
+			pairs += 1;
+		}
+	}
+	console.log(pairs);
+}
+
+
+
+
+

@@ -70,3 +70,91 @@ maxProfitWithKTransactionsOptimized = (prices, k) => {
 };
 
 maxProfitWithKTransactionsOptimized([400, 390, 420, 470, 460, 500, 580], 1);
+
+
+
+
+
+
+
+
+
+
+mPWKTO = (prices, k) =>  {
+
+
+	if(!prices.length){
+		console.log('0')
+	}
+
+
+	const evProf = new Array(prices.length).fill(0);
+	const oddProf = new Array(prices.length).fill(0);
+
+
+	for (let t=0; t < k + 1 ; t++){
+		let mP = -Infinity;
+
+		let curProf, prevProf;
+
+		if ( t % 2 === 1 ) {
+			curProf = oddProf;
+			prevProf = evProf;
+		}
+		else {
+			curProf = evProf;
+			prevProf = oddProf;
+		}
+
+		for (let d = 1; d < prices.length; d++) { 
+			mP = Math.max(mP,prevProf[d-1] - prices[d-1]);
+			curProf[d] = Math.max(curProf[d-1], mP + prices[d-1]);
+
+	}
+
+	console.log(
+		k % 2 === 0 ? evProf[prices.length - 1] : oddProf[prices.length - 1]
+	);
+
+
+}
+
+
+
+
+maxProf_wK = ( prices, k ) => {
+
+
+	if(!prices){
+		return 0;
+	}
+
+
+	const evProf = new Array( prices.length).fill(0);
+	const oddProf = new Array( prices.length).fill(0);
+
+
+	for ( let t = 0 ; t < k+1 ; t ++){
+		let maxPot = 0;
+		let currentProf, previousProf;
+		if ( t % 2 === 1 ) { 
+			currentProfits = oddProf;
+			previousProf = evProf;
+		}else{ 
+			currentProfits = evProf;
+			previousProfits = oddProf;
+		}
+
+		for ( let d = 1; d < prices.length; d++) {
+			maxPot = Math.max(maxPot, previousProf[d-1] -  prices[d-1])
+			currentProf[d] =  Math.max(currentProf[d-1], maxPot + prices[d])
+		}
+	
+	}
+
+
+	return(
+		k % 2 === 0 ? evProf[prices.length-1]  : oddProf[prices.length-1]
+	)
+
+}
